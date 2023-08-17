@@ -1,10 +1,34 @@
 {
   "name": "yavvatov-test",
-  "version": "0.0.0",
-  "private": true,
+  "license": "MIT",
+  "homepage": "https://github.com/MaYAzxc/yavvatov-test",
+  "author": "MaratYavvatov",
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue 3",
+    "weather",
+    "widget"
+  ],
+  "version": "0.0.1",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/weather-widget.umd.js",
+  "module": "./dist/weather-widget.es.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/weather-widget.es.js",
+      "require": "./dist/weather-widget.umd.js"
+    },
+    "./weather-widget.css": "./dist/weather-widget.css",
+    "./weather-widget.scss": "./dist/weather-widget.scss"
+  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
+    "build:library": "ts-node --skipProject buildWidget.config.ts",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
@@ -13,6 +37,8 @@
   },
   "dependencies": {
     "pinia": "^2.1.4",
+    "sass": "^1.65.1",
+    "ts-node": "^10.9.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {
